@@ -1,20 +1,187 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lending</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Кофейня «Зерно» — свежий кофе каждый день</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <base href="https://i.pinimg.com/474x/10/10/b5/1010b5c3cd1d13526566e9890c657b94.jpg">
-        <nav>
-            <a href="#about">О компании</a>
-            <a href="employe">Сотрудникам</a>
-            <a href="#service">Услуги</a>
-            <a href="#contacts">Контакты</a>
-        </nav>
-    </header>
+  <header class="header">
+    <a href="#" class="logo" aria-label="Кофейня Зерно — на главную">
+      <span class="logo__mark" aria-hidden="true">☕</span>
+      <span class="logo__text">Зерно</span>
+    </a>
 
+    <nav class="nav" aria-label="Основная навигация">
+      <button class="burger" type="button" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#services">Меню</a></li>
+        <li><a class="nav__link" href="#about">О нас</a></li>
+        <li><a class="nav__link" href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="hero">
+      <div class="hero__content">
+        <p class="hero__label">Обжарка каждую неделю</p>
+        <h1 class="hero__title">Свежий кофе, тёплый свет и запах корицы</h1>
+        <p class="hero__text">
+          Мы готовим кофе из зерна собственной обжарки и печём круассаны
+          каждое утро — заходите за чашкой бодрости.
+        </p>
+        <div class="hero__actions">
+          <a class="btn" href="#contacts">Забронировать столик</a>
+          <a class="btn btn--ghost" href="#services">Посмотреть меню</a>
+        </div>
+      </div>
+
+      <div class="hero__media">
+        <img class="hero__img"
+             src="https://i.pinimg.com/474x/b2/11/2e/b2112ed652c99909d284f4f09ccbc4d6.jpg"
+             alt="Чашка кофе на деревянном столе">
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <header class="section-header">
+        <h2 class="section-title">Наше меню</h2>
+        <p class="section-subtitle">Классика и авторские напитки — на любой вкус.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">☕</div>
+          <h3 class="card__title">Эспрессо</h3>
+          <p class="card__text">
+            Плотный, насыщенный, с шоколадным послевкусием. Готовим на зерне из Эфиопии.
+          </p>
+          <p class="card__price">180 ₽</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🥛</div>
+          <h3 class="card__title">Капучино</h3>
+          <p class="card__text">
+            Мягкая молочная пена, идеальный баланс и немного какао сверху.
+          </p>
+          <p class="card__price">240 ₽</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🍯</div>
+          <h3 class="card__title">Латте с мёдом</h3>
+          <p class="card__text">
+            Авторский напиток с цветочным мёдом и щепоткой корицы.
+          </p>
+          <p class="card__price">280 ₽</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🥐</div>
+          <h3 class="card__title">Круассан</h3>
+          <p class="card__text">
+            Свежая выпечка каждое утро — с маслом, миндалём или шоколадом.
+          </p>
+          <p class="card__price">150 ₽</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🍫</div>
+          <h3 class="card__title">Мокко</h3>
+          <p class="card__text">
+            Кофе, шоколад и молоко — согревающий напиток для долгих разговоров.
+          </p>
+          <p class="card__price">260 ₽</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon" aria-hidden="true">🍵</div>
+          <h3 class="card__title">Чайная карта</h3>
+          <p class="card__text">
+            Более 10 сортов чая: от классического пуэра до травяных сборов.
+          </p>
+          <p class="card__price">190 ₽</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about__media">
+        <img class="about__img"
+             src="https://picsum.photos/seed/coffee-about/900/700"
+             alt="Интерьер кофейни">
+      </div>
+
+      <div class="about__content">
+        <h2 class="section-title">О кофейне</h2>
+        <p class="about__text">
+          Мы открылись в 2018 году как маленькая обжарочная мастерская. Сегодня у нас
+          два зала, своя пекарня и команда, которая любит кофе так же, как и вы.
+        </p>
+        <ul class="about__list">
+          <li>Зерно собственной обжарки</li>
+          <li>Свежая выпечка каждое утро</li>
+          <li>Бесплатный Wi-Fi и розетки</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="contact" id="contacts">
+      <header class="section-header">
+        <h2 class="section-title">Связаться с нами</h2>
+        <p class="section-subtitle">
+          Забронируйте столик или задайте вопрос — ответим в течение дня.
+        </p>
+      </header>
+
+      <form class="form" novalidate>
+        <label class="form__field">
+          <span class="form__label">Имя</span>
+          <input class="form__input"
+                 type="text"
+                 name="name"
+                 placeholder="Как вас зовут?"
+                 required>
+        </label>
+
+        <label class="form__field">
+          <span class="form__label">Email</span>
+          <input class="form__input"
+                 type="email"
+                 name="email"
+                 placeholder="you@example.com"
+                 required>
+        </label>
+
+        <label class="form__field form__field--wide">
+          <span class="form__label">Сообщение</span>
+          <textarea class="form__input form__textarea"
+                    name="message"
+                    rows="5"
+                    placeholder="Например: столик на двоих в субботу в 19:00"
+                    required></textarea>
+        </label>
+
+        <div class="form__actions">
+          <button class="btn" type="submit">Отправить</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__text">© 2026 Кофейня «Зерно». Москва, ул. Пушкина, 10.</p>
+    <p class="footer__text footer__text--muted">
+      Сделано в рамках курса «JavaScript и веб-разработка».
+    </p>
+  </footer>
 </body>
 </html>
