@@ -7,10 +7,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Шапка -->
   <header class="header">
     <a class="logo" href="#">☕ Зерно</a>
+
     <nav class="nav">
-      <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      <button class="burger" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
       <ul class="menu">
         <li><a href="#services">Меню</a></li>
         <li><a href="#about">О нас</a></li>
@@ -20,34 +24,82 @@
   </header>
 
   <main class="main">
+    <!-- Hero -->
     <section class="hero">
-      <div>
+      <div class="hero__content">
         <p class="tag">Обжарка каждую неделю</p>
         <h1>Свежий кофе, тёплый свет и запах корицы</h1>
-        <p class="muted">Готовим из зерна собственной обжарки и печём круассаны каждое утро.</p>
+        <p class="muted">
+          Готовим из зерна собственной обжарки и печём круассаны каждое утро.
+        </p>
         <a class="btn" href="#contacts">Забронировать столик</a>
       </div>
-      <img src="https://i.pinimg.com/474x/b2/11/2e/b2112ed652c99909d284f4f09ccbc4d6.jpg" alt="">
+      <img class="hero__img"
+           src="https://i.pinimg.com/474x/b2/11/2e/b2112ed652c99909d284f4f09ccbc4d6.jpg"
+           alt="Чашка кофе на деревянном столе">
     </section>
 
-    <section id="services">
+    <!-- Меню -->
+    <section id="services" class="services">
       <h2>Наше меню</h2>
+
       <div class="cards">
-        <article class="card"><div class="ico">☕</div><h3>Эспрессо</h3><p class="muted">Плотный, с шоколадным послевкусием.</p><p class="price">180 ₽</p></article>
-        <article class="card"><div class="ico">🥛</div><h3>Капучино</h3><p class="muted">Мягкая пена и немного какао.</p><p class="price">240 ₽</p></article>
-        <article class="card"><div class="ico">🍯</div><h3>Латте с мёдом</h3><p class="muted">Цветочный мёд и щепотка корицы.</p><p class="price">280 ₽</p></article>
-        <article class="card"><div class="ico">🥐</div><h3>Круассан</h3><p class="muted">Свежая выпечка каждое утро.</p><p class="price">150 ₽</p></article>
-        <article class="card"><div class="ico">🍫</div><h3>Мокко</h3><p class="muted">Кофе, шоколад и молоко.</p><p class="price">260 ₽</p></article>
-        <article class="card"><div class="ico">🍵</div><h3>Чайная карта</h3><p class="muted">Более 10 сортов чая.</p><p class="price">190 ₽</p></article>
+        <article class="card">
+          <div class="card__icon">☕</div>
+          <h3>Эспрессо</h3>
+          <p class="muted">Плотный, с шоколадным послевкусием.</p>
+          <p class="card__price">180 ₽</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon">🥛</div>
+          <h3>Капучино</h3>
+          <p class="muted">Мягкая пена и немного какао.</p>
+          <p class="card__price">240 ₽</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon">🍯</div>
+          <h3>Латте с мёдом</h3>
+          <p class="muted">Цветочный мёд и щепотка корицы.</p>
+          <p class="card__price">280 ₽</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon">🥐</div>
+          <h3>Круассан</h3>
+          <p class="muted">Свежая выпечка каждое утро.</p>
+          <p class="card__price">150 ₽</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon">🍫</div>
+          <h3>Мокко</h3>
+          <p class="muted">Кофе, шоколад и молоко.</p>
+          <p class="card__price">260 ₽</p>
+        </article>
+
+        <article class="card">
+          <div class="card__icon">🍵</div>
+          <h3>Чайная карта</h3>
+          <p class="muted">Более 10 сортов чая.</p>
+          <p class="card__price">190 ₽</p>
+        </article>
       </div>
     </section>
 
+    <!-- О нас -->
     <section id="about" class="about">
-      <img src="https://picsum.photos/seed/coffee-about/900/700" alt="">
-      <div>
+      <img class="about__img"
+           src="https://picsum.photos/seed/coffee-about/900/700"
+           alt="Интерьер кофейни">
+      <div class="about__content">
         <h2>О кофейне</h2>
-        <p class="muted">Мы открылись в 2018 году как маленькая обжарочная мастерская. Сегодня — два зала, своя пекарня и команда, влюблённая в кофе.</p>
-        <ul class="muted">
+        <p class="muted">
+          Мы открылись в 2018 году как маленькая обжарочная мастерская.
+          Сегодня — два зала, своя пекарня и команда, влюблённая в кофе.
+        </p>
+        <ul class="muted about__list">
           <li>Зерно собственной обжарки</li>
           <li>Свежая выпечка каждое утро</li>
           <li>Wi-Fi и розетки</li>
@@ -55,14 +107,31 @@
       </div>
     </section>
 
-    <section id="contacts">
+    <!-- Контакты -->
+    <section id="contacts" class="contact">
       <h2>Связаться с нами</h2>
       <p class="muted">Забронируйте столик или задайте вопрос.</p>
+
       <form class="form">
-        <label>Имя<input type="text" name="name" placeholder="Как вас зовут?" required></label>
-        <label>Email<input type="email" name="email" placeholder="you@example.com" required></label>
-        <label class="wide">Сообщение<textarea name="message" rows="4" placeholder="Столик на двоих в субботу в 19:00" required></textarea></label>
-        <div class="wide"><button class="btn" type="submit">Отправить</button></div>
+        <label class="field">
+          Имя
+          <input type="text" name="name" placeholder="Как вас зовут?" required>
+        </label>
+
+        <label class="field">
+          Email
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </label>
+
+        <label class="field field--wide">
+          Сообщение
+          <textarea name="message" rows="4"
+                    placeholder="Столик на двоих в субботу в 19:00" required></textarea>
+        </label>
+
+        <div class="form__actions">
+          <button class="btn" type="submit">Отправить</button>
+        </div>
       </form>
     </section>
   </main>
