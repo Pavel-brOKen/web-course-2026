@@ -63,7 +63,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.15rem;
 }
 
-.nav { display: flex; align-items: center; }
+.nav { display: flex; align-items: center; position: relative; }
 
 .menu {
   display: none;              /* на мобиле скрыто — вместо него гамбургер */
@@ -383,4 +383,22 @@ a { color: inherit; text-decoration: none; }
   .contact { padding: 56px 48px; }
 
   h2 { font-size: 2rem; }
+}
+ @media (hover: hover) and (max-width: 767px) {
+  .nav:hover .menu,
+  .nav:focus-within .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 180px;
+    padding: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    z-index: 10;
+  }
 }
