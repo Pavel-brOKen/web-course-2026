@@ -12,15 +12,16 @@
     <a class="logo" href="#">☕ Чай</a>
 
     <nav class="nav">
-      <button class="burger" aria-label="Открыть меню">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="menu">
-        <li><a href="#services">Меню</a></li>
-        <li><a href="#about">О нас</a></li>
-        <li><a href="#contacts">Контакты</a></li>
-      </ul>
-    </nav>
+    <input type="checkbox" id="nav-toggle" class="nav__toggle" hidden>
+    <label for="nav-toggle" class="burger" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </label>
+    <ul class="menu">
+      <li><a href="#services">Меню</a></li>
+      <li><a href="#about">О нас</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
   </header>
 
   <main class="main">
@@ -135,7 +136,6 @@
       </form>
     </section>
   </main>
-
   <footer class="footer">
     <p>© 2026 Чайная  Марка. Москва, ул. Пушкина, 10.</p>
   </footer>
