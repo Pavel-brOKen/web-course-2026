@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>Быки и коровы</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="script.js"></script>
+</head>
+<body>
+  <main class="game">
+    <h1>Быки и коровы</h1>
+    <p class="rules">Компьютер загадал 4 цифры без повторений. Угадайте число!</p>
+
+    <div class="controls">
+      <input type="text" id="guess-input" maxlength="4"
+             inputmode="numeric" placeholder="0000" autocomplete="off">
+      <button id="check-btn" type="button">Проверить</button>
+      <button id="new-game-btn" type="button">Новая игра</button>
+    </div>
+
+    <p id="error-message" class="error"></p>
+    <p id="attempts">Попыток: <strong>0</strong></p>
+    <ul id="history-list" class="history"></ul>
+    <p id="win-message" class="win"></p>
+  </main>
+</body>
+</html>
