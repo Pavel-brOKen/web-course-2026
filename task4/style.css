@@ -1,0 +1,400 @@
+/* ============================================================
+   Быки и коровы — modern dark UI
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ---------- Токены ---------- */
+:root {
+  --bg-base-1: #0b0a1f;
+  --bg-base-2: #14122e;
+  --surface:      rgba(255, 255, 255, 0.04);
+  --surface-2:    rgba(255, 255, 255, 0.07);
+  --border:       rgba(255, 255, 255, 0.08);
+  --border-hi:    rgba(255, 255, 255, 0.18);
+
+  --text:        #eceafd;
+  --text-muted:  #8e8bb0;
+  --accent:      #7c5cff;
+  --accent-2:    #4dd4ff;
+  --bulls:       #34d399;
+  --cows:        #fbbf24;
+  --danger:      #f87171;
+
+  --radius-lg: 24px;
+  --radius:    14px;
+  --radius-sm: 10px;
+
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t: 0.22s var(--ease);
+}
+
+/* ---------- Сброс ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { -webkit-tap-highlight-color: transparent; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  background-color: var(--bg-base-1);
+  background-image:
+    radial-gradient(1000px 600px at 15% -10%, rgba(124, 92, 255, 0.22), transparent 60%),
+    radial-gradient(900px 700px at 100% 110%, rgba(77, 212, 255, 0.18), transparent 60%),
+    radial-gradient(700px 500px at 50% 50%, rgba(124, 92, 255, 0.06), transparent 70%),
+    linear-gradient(135deg, var(--bg-base-1) 0%, var(--bg-base-2) 100%);
+  background-attachment: fixed;
+
+  display: grid;
+  place-items: center;
+}
+
+/* ---------- Карточка игры ---------- */
+.game {
+  width: 100%;
+  max-width: 540px;
+  padding: 36px 32px 32px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: rgba(20, 18, 46, 0.55);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  box-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+    0 30px 80px -30px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(124, 92, 255, 0.06);
+  animation: card-in 0.55s var(--ease) both;
+}
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* ---------- Заголовок ---------- */
+h1 {
+  margin: 0 0 8px;
+  font-size: clamp(24px, 4.5vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  text-align: center;
+  background: linear-gradient(120deg, #ffffff 0%, #c9c2ff 45%, #7cd4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.rules {
+  margin: 0 0 28px;
+  font-size: 14px;
+  line-height: 1.55;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ---------- Панель управления ---------- */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+#guess-input {
+  flex: 1 1 170px;
+  min-height: 52px;
+  padding: 0 18px;
+  font: 700 22px/1 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.32em;
+  text-align: center;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color var(--t), background var(--t),
+              box-shadow var(--t), transform var(--t);
+}
+
+#guess-input::placeholder {
+  color: rgba(142, 139, 176, 0.55);
+  font-weight: 600;
+  letter-spacing: 0.32em;
+}
+
+#guess-input:hover:not(:disabled) {
+  border-color: var(--border-hi);
+  background: var(--surface-2);
+}
+
+#guess-input:focus {
+  border-color: var(--accent);
+  background: var(--surface-2);
+  box-shadow:
+    0 0 0 4px rgba(124, 92, 255, 0.18),
+    0 0 24px -6px rgba(124, 92, 255, 0.55);
+}
+
+#guess-input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---------- Кнопки ---------- */
+button {
+  min-height: 52px;
+  padding: 0 22px;
+  font: 600 15px/1 'Inter', system-ui, sans-serif;
+  letter-spacing: -0.005em;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform var(--t), background var(--t),
+              box-shadow var(--t), border-color var(--t), color var(--t);
+  user-select: none;
+}
+
+button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 4px rgba(77, 212, 255, 0.25),
+    0 0 0 1px var(--accent-2) inset;
+}
+
+#check-btn {
+  color: #fff;
+  background:
+    linear-gradient(135deg, #8c6cff 0%, #6a45ff 55%, #4d2fe0 100%);
+  box-shadow:
+    0 10px 24px -10px rgba(124, 92, 255, 0.75),
+    0 1px 0 0 rgba(255, 255, 255, 0.18) inset;
+}
+
+#check-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 30px -12px rgba(124, 92, 255, 0.95),
+    0 1px 0 0 rgba(255, 255, 255, 0.22) inset;
+}
+
+#check-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow:
+    0 6px 14px -8px rgba(124, 92, 255, 0.7),
+    0 1px 0 0 rgba(255, 255, 255, 0.14) inset;
+}
+
+#new-game-btn {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+#new-game-btn:hover:not(:disabled) {
+  background: var(--surface-2);
+  border-color: var(--border-hi);
+}
+
+#new-game-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---------- Сообщение об ошибке ---------- */
+.error {
+  min-height: 20px;
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--danger);
+  text-align: center;
+  transition: opacity var(--t);
+}
+
+.error:empty { opacity: 0; }
+
+/* ---------- Счётчик попыток ---------- */
+#attempts {
+  margin: 0 0 18px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+#attempts strong {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0;
+  color: var(--accent-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- История попыток ---------- */
+.history {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 320px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+}
+
+.history:empty { display: none; }
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: background var(--t), border-color var(--t), transform var(--t);
+  animation: item-in 0.32s var(--ease) both;
+}
+
+.history-item:hover {
+  background: var(--surface-2);
+  border-color: var(--border-hi);
+  transform: translateX(2px);
+}
+
+.history-guess {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.history-result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  line-height: 1;
+  border: 1px solid transparent;
+}
+
+.stat.bulls {
+  color: var(--bulls);
+  background: rgba(52, 211, 153, 0.10);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+.stat.cows {
+  color: var(--cows);
+  background: rgba(251, 191, 36, 0.10);
+  border-color: rgba(251, 191, 36, 0.28);
+}
+
+@keyframes item-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ---------- Кастомный скроллбар ---------- */
+.history::-webkit-scrollbar { width: 8px; }
+.history::-webkit-scrollbar-track { background: transparent; }
+.history::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.history::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
+  background-clip: padding-box;
+}
+
+/* ---------- Победное сообщение ---------- */
+.win {
+  margin: 18px 0 0;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: var(--bulls);
+  background:
+    linear-gradient(135deg, rgba(52, 211, 153, 0.14), rgba(77, 212, 255, 0.10));
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: var(--radius);
+}
+
+.win:empty { display: none; }
+
+.win.pop {
+  animation: win-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes win-pop {
+  0%   { opacity: 0; transform: scale(0.9) translateY(6px); }
+  60%  { opacity: 1; transform: scale(1.03) translateY(0);   }
+  100% { opacity: 1; transform: scale(1) translateY(0);      }
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 480px) {
+  body { padding: 16px; }
+
+  .game {
+    padding: 28px 20px 24px;
+    border-radius: 20px;
+  }
+
+  .rules { margin-bottom: 22px; }
+
+  #guess-input { flex: 1 1 100%; }
+
+  #check-btn,
+  #new-game-btn { flex: 1 1 calc(50% - 5px); padding: 0 14px; }
+}
+
+/* ---------- Уважаем «уменьшение движения» ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
