@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CYBERPUNK // MONOWIRE OVERDRIVE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="brutal-frame">
+    <header class="hud-header">
+      <div class="logo-area">
+        <span id="radioChatter" class="badge-chatter">ЗДАРОВА, ЧУМБА // КАНАЛ ОТКРЫТ</span>
+        <h1>MONO<span>WIRE</span> // KILL-SWITCH</h1>
+      </div>
+      <div class="score-box">
+        <span class="score-label">ЭДДИ / КЭШ</span>
+        <strong id="score">0</strong>
+      </div>
+    </header>
+
+    <div class="canvas-stage">
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+      <!-- Точка входа с культовой фразой -->
+      <div id="startOverlay" class="hud-overlay">
+        <div class="visor-tag">НЕЙРОПОРТ // СИНХРОНИЗАЦИЯ</div>
+        <h2>ВСТАВАЙ, САМУРАЙ...</h2>
+        <p>Нам нужно сжечь этот лед. Режь нейрочипы моноструной и не слови киберпсихоз.</p>
+        <button id="startBtn" type="button" class="edgerunner-btn">ЗАПУСТИТЬ ХРОМ</button>
+      </div>
+
+      <!-- Экран поражения -->
+      <div id="gameOverOverlay" class="hud-overlay" style="display: none;">
+        <div class="visor-tag danger">FLATLINED // КИБЕРПСИХОЗ</div>
+        <h2>ТЫ СГОРЕЛ, ЧУМБА</h2>
+        <p>Выкачано данных: <span id="finalScore">0</span> эдди</p>
+        <button id="restartBtn" type="button" class="edgerunner-btn">ЕЩЁ ОДИН ЗАБЕГ</button>
+      </div>
+    </div>
+
+    <footer class="hud-footer">
+      <span>УПРАВЛЕНИЕ: [ ↑ ↓ ← → ]</span>
+      <span class="night-city-tag">AFTERLIFE // NIGHT CITY</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
