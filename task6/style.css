@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Брутальный индустриальный фон: стальной графит, багровый неон и тревожный жёлтый */
+  background-color: #14161f;
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(255, 0, 60, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(252, 238, 9, 0.14) 0%, transparent 50%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+  color: #fcee09;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.brutal-frame {
+  background: #1b1e2b;
+  border: 3px solid #fcee09;
+  box-shadow: 8px 8px 0px #ff003c, -4px -4px 0px #00f0ff;
+  padding: 20px;
+  max-width: 450px;
+  width: 100%;
+}
+
+.hud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ff003c;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.badge-chatter {
+  display: inline-block;
+  background: #ff003c;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 900;
+  padding: 2px 7px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.hud-header h1 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #fcee09;
+  letter-spacing: 1px;
+}
+
+.hud-header h1 span {
+  color: #00f0ff;
+}
+
+.score-box {
+  background: #fcee09;
+  color: #14161f;
+  padding: 6px 12px;
+  text-align: right;
+  border: 2px solid #14161f;
+}
+
+.score-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #ff003c;
+}
+
+.score-box strong {
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.canvas-stage {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  border: 3px solid #fcee09;
+  background: #1d2230;
+}
+
+canvas {
+  display: block;
+}
+
+.hud-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background: rgba(20, 22, 31, 0.92);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+}
+
+.visor-tag {
+  background: #00f0ff;
+  color: #14161f;
+  font-weight: 900;
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  letter-spacing: 1.5px;
+}
+
+.visor-tag.danger {
+  background: #ff003c;
+  color: #ffffff;
+}
+
+.hud-overlay h2 {
+  color: #fcee09;
+  font-size: 1.55rem;
+  text-shadow: 3px 3px 0px #ff003c;
+  letter-spacing: 1px;
+}
+
+.hud-overlay p {
+  color: #d8dee9;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.edgerunner-btn {
+  position: relative;
+  z-index: 30;
+  margin-top: 6px;
+  background: #fcee09;
+  color: #14161f;
+  border: 2px solid #14161f;
+  padding: 12px 26px;
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 5px 5px 0px #ff003c;
+  transition: transform 0.1s, background-color 0.1s;
+}
+
+.edgerunner-btn:hover {
+  background: #00f0ff;
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #ff003c;
+}
+
+.edgerunner-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #ff003c;
+}
+
+.hud-footer {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #8892b0;
+}
+
+.night-city-tag {
+  color: #fcee09;
+}
